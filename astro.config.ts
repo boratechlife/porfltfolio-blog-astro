@@ -14,6 +14,8 @@ import { envSchema, PROCESS_ENV } from './src/config/process-env';
 import { expressiveCodeIntegration } from './src/libs/integrations/expressive-code';
 import { sitemapIntegration } from './src/libs/integrations/sitemap';
 
+import netlify from '@astrojs/netlify';
+
 const { SITE_URL } = PROCESS_ENV;
 const remarkPlugins = [remarkReadingTime];
 
@@ -21,10 +23,13 @@ export default defineConfig({
   site: SITE_URL,
   experimental: { env: envSchema },
   trailingSlash: 'ignore',
+
   // default
   compressHTML: true,
+
   server: { port: 3000 },
   devToolbar: { enabled: false },
+
   integrations: [
     expressiveCodeIntegration(),
     sitemapIntegration(),
@@ -37,10 +42,15 @@ export default defineConfig({
       config: { forward: ['dataLayer.push'] },
     }),
   ],
+
   markdown: { remarkPlugins },
+
   vite: {
     build: {
       sourcemap: false,
     },
   },
+
+  output: 'server',
+  adapter: netlify(),
 });
