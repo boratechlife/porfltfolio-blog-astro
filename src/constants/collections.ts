@@ -18,6 +18,10 @@ export const TAGS = [
   'python',
   'devops',
   'self-hosting',
+  'tensorflow.js',
+  'machine learning',
+  'deep learning',
+  'javascript',
 ] as const;
 
 /** adjust this later */

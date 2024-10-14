@@ -1,0 +1,56 @@
+---
+title: Exploring Tensor Representation in TensorFlow
+description: |
+  Understand how TensorFlow represents data using tensors, and learn about the concepts of rank, shape, and data type that define tensors.
+publishDate: 2024-10-12
+heroImage: '../../content/post/_images/2024-01-21-example-article-5/morning1.jpg'
+heroAlt: Essential concepts of tensors in TensorFlow.
+tags:
+  - astro
+  - next.js
+  - css
+  - python
+category: tutorials
+toc: true
+---
+
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import Alert from '../../components/Alert.astro';
+import Button from '../../components/Button.astro';
+
+## How are Tensors Represented in TensorFlow?
+
+In TensorFlow, tensors are used to encapsulate data for easy manipulation and computation. Every tensor is characterized by three main attributes: rank, shape, and data type.
+
+### Rank of a Tensor
+
+The **rank** of a tensor is the number of dimensions it possesses, which corresponds to the levels of nested arrays. The rank provides a way to categorize tensors:
+
+- Rank 0: Scalar (single number)
+- Rank 1: Vector (array of numbers)
+- Rank 2: Matrix (two-dimensional array)
+- Rank 3 or higher: Tensors with 3 or more dimensions
+
+### Shape of a Tensor
+
+The **shape** of a tensor refers to the tuple of integers that describes the tensor's dimensionality. Each number in the shape represents the size of the tensor along a specific axis. For example, a matrix with 2 rows and 3 columns has a shape of (2, 3).
+
+### Data Type of a Tensor
+
+Tensors in TensorFlow are created with a specific **data type**, such as `tf.int32`, `tf.float64`, or `tf.string`. This attribute defines the type of data elements that the tensor can store.
+
+### Practical Example
+
+Here is an example demonstrating how to create a tensor in TensorFlow and identify its rank, shape, and data type:
+
+```ts title="Creating and Examining a Tensor"
+import * as tf from '@tensorflow/tfjs';
+
+// Create a 2D tensor (matrix)
+const tensor = tf.tensor([[1, 2, 3], [4, 5, 6]], [2, 3], 'int32');
+console.log(`Rank: ${tensor.rank}`);
+console.log(`Shape: ${tensor.shape}`);
+console.log(`Data Type: ${tensor.dtype}`);
+```

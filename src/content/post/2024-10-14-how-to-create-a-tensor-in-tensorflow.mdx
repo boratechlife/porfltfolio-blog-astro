@@ -1,0 +1,87 @@
+---
+title: How to Create a Tensor in TensorFlow.js
+description: |
+  Learn how to create a tensor in TensorFlow.js with easy-to-follow examples and explanations, perfect for beginners starting their machine learning journey.
+publishDate: 2024-10-14
+heroImage: '../../content/post/_images/2024-01-21-example-article-5/morning1.jpg'
+heroAlt: Creating tensors in TensorFlow.js for numerical computation and machine learning tasks.
+tags:
+  - tensorflow.js
+  - machine learning
+  - javascript
+category: tutorials
+toc: true
+---
+
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import Alert from '../../components/Alert.astro';
+import Button from '../../components/Button.astro';
+
+## How to Create a Tensor in TensorFlow.js
+
+A **tensor** is the core building block in TensorFlow.js and is used to represent data in different dimensions. Whether you are working with single numbers, lists of numbers, or complex multi-dimensional data (like images), tensors are the main way to store and manipulate that data.
+
+In this tutorial, we'll show you how to create a tensor in TensorFlow.js using easy-to-understand examples. Let’s start with the basics!
+
+### Creating a Simple Tensor
+
+You can create a tensor in TensorFlow.js by using the `tf.tensor` function. This function allows you to pass in data (like a list of numbers), and it will transform it into a tensor.
+
+Here’s an example of how to create a **1D tensor** (a vector of numbers):
+
+```js title="Creating a 1D Tensor in TensorFlow.js"
+import * as tf from '@tensorflow/tfjs';
+
+// Create a 1D tensor (vector)
+const tensor1D = tf.tensor([1, 2, 3, 4]);
+console.log(tensor1D.toString());
+```
+
+```js
+Tensor
+   [1, 2, 3, 4]
+
+```
+This creates a tensor with 4 numbers, similar to a list or array, but with TensorFlow’s powerful data handling capabilities.
+
+### Creating a 2D Tensor (Matrix)
+You can also create a 2D tensor, which is like a table or matrix. This is useful when working with images, tables of data, or any grid-like data structure.
+
+Here’s how you can create a simple 2D tensor:
+```ts
+const tensor2D = tf.tensor([[1, 2], [3, 4]]);
+console.log(tensor2D.toString());
+
+```
+
+```ts
+Tensor
+   [[1, 2],
+    [3, 4]]
+
+```
+This creates a 2x2 matrix, which is a basic example of a 2D tensor.
+
+### Higher-Dimensional Tensors
+Tensors in TensorFlow.js can have more than two dimensions. For example, a 3D tensor might represent an image with multiple color channels (like red, green, and blue). You can create higher-dimensional tensors the same way by passing more nested arrays.
+
+Here’s an example of a 3D tensor:
+
+```js
+const tensor3D = tf.tensor([[[1, 2], [3, 4]], [[5, 6], [7, 8]]]);
+console.log(tensor3D.toString());
+
+```
+
+```js
+
+Tensor
+   [[[1, 2], [3, 4]],
+    [[5, 6], [7, 8]]]
+
+```
+This creates a 3D tensor with shape [2, 2, 2], which could represent two color images, each with 2x2 pixels.
+
+<Alert variant="tip" title="Get Started with Tensors in TensorFlow.js"> Try creating your own tensors with different shapes and dimensions. The more you practice, the more comfortable you'll become with TensorFlow.js! </Alert> 
