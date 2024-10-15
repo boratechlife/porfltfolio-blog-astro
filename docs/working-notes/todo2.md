@@ -64,7 +64,7 @@ https://github.com/onwidget/astrowind/blob/main/tailwind.config.cjs
 
 ---
 
-global styles should be included in apps/nemanjamiticcom/src/components/BaseHead.astro
+global styles should be included in apps/deniskipronocom/src/components/BaseHead.astro
 PostCard has standalone styles, doesn't depend on prose in page
 semantic html cheatsheet
 

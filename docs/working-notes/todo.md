@@ -90,7 +90,7 @@ https://www.reddit.com/r/selfhosted/comments/110elej/selfhosting_netlify_cms/?so
 
 ---
 
-todo: write dockerfile for nemanjamiticcom, adjust for monorepo
+todo: write dockerfile for deniskipronocom, adjust for monorepo
 need to have app working with monorepo to do docker and github action deploy
 
 ---
@@ -117,7 +117,7 @@ on remove folder scp-action must restart nginx, fix this, done
 Only build time variable **important**. Can be undefined in prod runtime.
 
 ```bash
-PUBLIC_SITE_HOSTNAME=https://nemanjamitic.com
+PUBLIC_SITE_HOSTNAME=https://kipronodenis.com
 ```
 
 - clean up utils folder

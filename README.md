@@ -1,18 +1,18 @@
-# Developer blog [nemanjamitic.com](https://nemanjamitic.com)
+# Developer blog [deniskiprono.com](https://deniskiprono.com)
 
-This is the repository for my coding blog [nemanjamitic.com](https://nemanjamitic.com). Free and open source, feel free to reuse code and customize for your own developer blog. Blog posts (future) require attribution.
+This is the repository for my coding blog [deniskiprono.com](https://deniskiprono.com). Free and open source, feel free to reuse code and customize for your own developer blog. Blog posts (future) require attribution.
 
 ## Mirrors
 
 | Method       | Url                                      |
 | :----------- | :--------------------------------------- |
-| Nginx        | https://nemanjamitic.com                 |
+| Nginx        | https://deniskiprono.com                 |
 | Github Pages | https://nemanjam.github.io               |
-| Docker       | https://nmc-docker.arm1.nemanjamitic.com |
+| Docker       | https://nmc-docker.arm1.deniskiprono.com |
 
 #### Plausible analytics
 
-https://plausible.arm1.nemanjamitic.com/nemanjamitic.com
+https://plausible.arm1.deniskiprono.com/deniskiprono.com
 
 ## Screenshots
 
@@ -68,7 +68,7 @@ SITE_URL=http://localhost:3000
 ```bash
 # .env.production
 
-SITE_URL=https://nemanjamitic.com
+SITE_URL=https://deniskiprono.com
 
 # set to true to preview draft posts in production
 PREVIEW_MODE=
@@ -143,7 +143,7 @@ All Nginx deployments come down to building the website and copying the compiled
 # package.json
 
 # set your SITE_URL
-"build:nginx": "SITE_URL='https://nemanjamitic.com' astro build",
+"build:nginx": "SITE_URL='https://deniskiprono.com' astro build",
 
 # build the app
 yarn build:nginx
@@ -206,17 +206,17 @@ After that you can build and push multi-platform images locally.
 # open terminal and login with your Dockerhub account, both locally and on remote server
 docker login my-user my-pass
 
-# replace "nemanjamitic/nemanjam.github.io" with your image name
+# replace "deniskiprono/nemanjam.github.io" with your image name
 # set ARG_SITE_URL_ARM64 to your production url
 # set correct architecture for your production server --platform linux/arm64 or linux/amd64
-"docker:build:push:arm": "docker buildx build -f ./docker/Dockerfile -t nemanjamitic/nemanjam.github.io --build-arg ARG_SITE_URL_ARM64='https://nmc-docker.arm1.nemanjamitic.com' --platform linux/arm64 --progress=plain --push .",
+"docker:build:push:arm": "docker buildx build -f ./docker/Dockerfile -t deniskiprono/nemanjam.github.io --build-arg ARG_SITE_URL_ARM64='https://nmc-docker.arm1.deniskiprono.com' --platform linux/arm64 --progress=plain --push .",
 
 # build and push Docker image, replace "arm" with your architecture
 yarn docker:build:push:arm
 
 # replace "~/traefik-proxy/apps/nmc-docker" with your path to docker-compose.yml
-# replace "nemanjamitic/nemanjam.github.io" with your image name
-"deploy:docker": "bash scripts/deploy-docker.sh arm1 '~/traefik-proxy/apps/nmc-docker' nemanjamitic/nemanjam.github.io",
+# replace "deniskiprono/nemanjam.github.io" with your image name
+"deploy:docker": "bash scripts/deploy-docker.sh arm1 '~/traefik-proxy/apps/nmc-docker' deniskiprono/nemanjam.github.io",
 
 # pull and run latest image on your production server
 yarn deploy:docker

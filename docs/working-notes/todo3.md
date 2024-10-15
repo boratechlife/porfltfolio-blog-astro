@@ -80,7 +80,7 @@ pin to "sharp": "0.32.6",
 ----
 // docker arm
 can use nginx alpine without node for final prod image, 15mb
-must use arm1.nemanjamitic.com for correct dns
+must use arm1.kipronodenis.com for correct dns
 must use docker login in ssh for private image
 must use qemu and buildx for arm linux/arm64 docker image
 cant use node-alpine for sharp // wrong, both alpine, slim and bookworm will work
@@ -263,7 +263,7 @@ postavi i description i title svuda u metadata, u Base default
 color themes
 
 must pass env var SITE_URL at build time
-"build:nginx": "SITE_URL='https://nemanjamitic.com' astro build",
+"build:nginx": "SITE_URL='https://kipronodenis.com' astro build",
 categories - images or icons with cards
 codesandbox embed
 cva default styles vs default variant, primer
@@ -454,7 +454,7 @@ analytics
 shaped text around images, home and about pages
 better roadmap
 add youtube, twitter in footer
-sta se tacno desava kad je site_url netacan a i dalje radi, npr: https://nmc-docker.local.nemanjamitic.com
+sta se tacno desava kad je site_url netacan a i dalje radi, npr: https://nmc-docker.local.kipronodenis.com
     PostCardSmall increase height maybe
     set canonicalURL, <link href={canonicalURL} rel="canonical" />
 ----
@@ -529,9 +529,9 @@ folder name for slug and index.mdx and images
 sentry
 
 // plausible
-<script defer data-domain="nemanjamitic.com" src="https://plausible.arm1.nemanjamitic.com/js/script.js"></script>
+<script defer data-domain="kipronodenis.com" src="https://plausible.arm1.kipronodenis.com/js/script.js"></script>
 add zod schema that checks node_env for plausible_url instead of optional
-moze samo za 1 url data-domain="nemanjamitic.com", to je ok, tako i treba
+moze samo za 1 url data-domain="kipronodenis.com", to je ok, tako i treba
 
     paralelizuj docker arm x86 build, reuse cache, test
 accessibility
@@ -548,7 +548,7 @@ js function to print image dom and src size over image for debugging, moze npm p
     fix github action docker arm x86, move condition in Dockerfile, remove matrix
 restructure folders, folder name, mdx and images in same folder
 content collections to content layer
-    fix plausible for all subdomains, done same data-domain="nemanjamitic.com", ok
+    fix plausible for all subdomains, done same data-domain="kipronodenis.com", ok
 gallery astro image
 prettyPrintObject in_ dev works after page load, ok
 ------------

@@ -12,9 +12,9 @@ services:
       args:
         ARG_SITE_URL_AMD64: 'http://localhost:8080'
         # make separate script with localhost enabled
-        ARG_PLAUSIBLE_SCRIPT_URL: 'https://plausible.arm1.nemanjamitic.com/js/script.js'
+        ARG_PLAUSIBLE_SCRIPT_URL: 'https://plausible.arm1.kipronodenis.com/js/script.js'
         # will trigger analytics
-        ARG_PLAUSIBLE_DOMAIN: 'nemanjamitic.com'
+        ARG_PLAUSIBLE_DOMAIN: 'kipronodenis.com'
 
     # platform: linux/arm64
     platform: linux/amd64

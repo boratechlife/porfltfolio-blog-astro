@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
 
 env:
-  SITE_URL: 'https://nemanjamitic.com'
-  PLAUSIBLE_SCRIPT_URL: 'https://plausible.arm1.nemanjamitic.com/js/script.js'
-  PLAUSIBLE_DOMAIN: 'nemanjamitic.com'
+  SITE_URL: 'https://kipronodenis.com'
+  PLAUSIBLE_SCRIPT_URL: 'https://plausible.arm1.kipronodenis.com/js/script.js'
+  PLAUSIBLE_DOMAIN: 'kipronodenis.com'
 
 jobs:
   deploy:
@@ -41,7 +41,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       # fix this for turbo
-      - name: Build nemanjamiticcom
+      - name: Build deniskipronocom
         run: yarn build
 
       - name: Clean up website dir

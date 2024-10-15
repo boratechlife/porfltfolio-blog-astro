@@ -20,8 +20,8 @@ permissions:
 # set env vars in Github settings here
 env:
   SITE_URL: 'https://nemanjam.github.io'
-  PLAUSIBLE_SCRIPT_URL: 'https://plausible.arm1.nemanjamitic.com/js/script.js'
-  PLAUSIBLE_DOMAIN: 'nemanjamitic.com'
+  PLAUSIBLE_SCRIPT_URL: 'https://plausible.arm1.kipronodenis.com/js/script.js'
+  PLAUSIBLE_DOMAIN: 'kipronodenis.com'
 
 jobs:
   build-manual:

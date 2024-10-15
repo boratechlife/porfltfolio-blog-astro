@@ -2,8 +2,8 @@
 
 ## Mirrors
 
-- https://nemanjamitic.com/
-- https://nmc-docker.arm1.nemanjamitic.com/
+- https://kipronodenis.com/
+- https://nmc-docker.arm1.kipronodenis.com/
 - https://nemanjam.github.io/
 
 ## References
