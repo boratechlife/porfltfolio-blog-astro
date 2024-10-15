@@ -204,7 +204,7 @@ const pages = {
   },
   'lists/blog': {
     title: 'Blog',
-    description: 'Est aliquip reprehenderit eu esse duis laboris cillum adipisicing reprehenderitvoluptate ex aute voluptate.'
+    description: 'Read and learn form our well researched and amazing coding blogs and tutorials'
   },
   'lists/blog/tags': { title: 'Tags', description: 'I am Nemanja, full stack developer' },
   'lists/blog/explore': {
