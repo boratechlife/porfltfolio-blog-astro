@@ -1,15 +1,15 @@
 export const config = {
   site: {
-    name: 'nemanjamiticcom',
-    site: 'https://nemanjamiticcom.vercel.app',
+    name: 'deniskipronocom',
+    site: 'https://deniskipronocom.vercel.app',
     base: '/',
     trailingSlash: false,
     googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
   },
   metadata: {
     title: {
-      default: 'nemanjamiticcom',
-      template: '%s — nemanjamiticcom',
+      default: 'deniskipronocom',
+      template: '%s — deniskipronocom',
     },
     description:
       '🚀 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.',
@@ -18,7 +18,7 @@ export const config = {
       follow: true,
     },
     openGraph: {
-      site_name: 'nemanjamiticcom',
+      site_name: 'deniskipronocom',
       images: [
         {
           url: '~/assets/images/default.png',
