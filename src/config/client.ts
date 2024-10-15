@@ -8,8 +8,8 @@ import type { ConfigClientType } from '@/types/config';
 const configClientData: ConfigClientType = {
   /** all urls without '/' */
   SITE_URL,
-  SITE_TITLE: 'Nemanja Mitic',
-  SITE_DESCRIPTION: 'I am Nemanja, full stack developer',
+  SITE_TITLE: 'Denis kiprono',
+  SITE_DESCRIPTION: 'I am Denis, Frontend developer',
   PLAUSIBLE_SCRIPT_URL,
   PLAUSIBLE_DOMAIN,
   PAGE_SIZE_POST_CARD: 3,
@@ -18,12 +18,12 @@ const configClientData: ConfigClientType = {
   DEFAULT_MODE: 'light',
   DEFAULT_THEME: 'default-light',
   AUTHOR_NAME: 'Denis Kiprono',
-  AUTHOR_EMAIL: 'email@email.com',
-  AUTHOR_GITHUB: 'https://github.com/nemanjam',
-  AUTHOR_LINKEDIN: 'https://www.linkedin.com/in/nemanja-mitic',
-  AUTHOR_TWITTER: 'https://x.com/nemanja_codes',
+  AUTHOR_EMAIL: 'boratechlife@gmail.com',
+  AUTHOR_GITHUB: 'https://github.com/boratechlife/',
+  AUTHOR_LINKEDIN: 'https://www.linkedin.com/in/kiprono-denis-138562185/',
+  AUTHOR_TWITTER: 'https://www.fiverr.com/boratechlife',
   AUTHOR_YOUTUBE: 'https://www.youtube.com/@nemanja_codes',
-  REPO_URL: 'https://github.com/nemanjam/nemanjam.github.io',
+  REPO_URL: 'https://github.com/boratechlife/',
 };
 
 export const CONFIG_CLIENT = validateData(configClientData, configClientSchema);
