@@ -87,10 +87,33 @@ export const GET: APIRoute = async ({ props }: APIContext) => {
 /*-------------------------------- utils ------------------------------*/
 
 const getBase64Image = async (imagePath: string): Promise<string> => {
-  const imageData = await fs.readFile(imagePath);
+  let imageData: Buffer;
+  let imageType: string;
 
-  const imageType = getImageType(imagePath);
-  const imageBase64 = Buffer.from(imageData).toString('base64');
+  // Check if imagePath is a URL
+  if (imagePath.startsWith('http') || imagePath.startsWith('https')) {
+    // Fetch the image from the web
+    const response = await fetch(imagePath);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch image from URL: ${imagePath}`);
+    }
+    imageData = Buffer.from(await response.arrayBuffer());
+
+    // Get content type from headers if available, fallback to JPEG if not provided
+    const contentType = response.headers.get('content-type');
+    imageType = contentType ? contentType.split('/')[1] : 'jpeg';
+
+    // Check if it's a webp image
+    if (contentType && contentType.includes('webp')) {
+      imageType = 'webp';
+    }
+  } else {
+    // Fallback to local file system image
+    imageData = await fs.readFile(imagePath);
+    imageType = getImageType(imagePath);
+  }
+
+  const imageBase64 = imageData.toString('base64');
   const imageBase64Url = `data:image/${imageType};base64,${imageBase64}`;
 
   return imageBase64Url;
@@ -107,6 +130,9 @@ const getImageType = (imagePath: string) => {
     case '.jpg':
     case '.jpeg':
       imageType = 'jpeg';
+      break;
+    case '.webp':
+      imageType = 'webp';
       break;
     default:
       throw new Error('Unsupported heroImage file extension');
