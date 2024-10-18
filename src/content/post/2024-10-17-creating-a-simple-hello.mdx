@@ -1,0 +1,38 @@
+---
+title: "Creating a Simple Hello, TensorFlow Program"
+description: >
+  Learn how to create a simple "Hello, TensorFlow!" program in TensorFlow.js. A beginner-friendly guide to help you get started with TensorFlow.
+publishDate: 2024-10-17
+heroImage: '../../content/post/_images/2022-02-16-example-article-1/focus6.png'
+heroAlt: A simple introduction to creating your first "Hello, TensorFlow!" program in TensorFlow.js.
+tags:
+  - tensorflow.js
+  - machine learning
+  - javascript
+category: tutorials
+toc: true
+---
+
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import Alert from '../../components/Alert.astro';
+import Button from '../../components/Button.astro';
+
+## How to Create a Simple "Hello, TensorFlow!" Program
+
+Creating your first **"Hello, TensorFlow!"** program is a great way to start learning how TensorFlow.js works. It's a simple program that demonstrates the basics of using tensors, the main data structure in TensorFlow.js. Let's dive right in and see how easy it is to create a tensor and display a message.
+
+### Step-by-Step: Hello, TensorFlow.js
+
+In this example, we'll create a **tensor** with the message "Hello, TensorFlow!" and then print it out. Here's how to do it:
+
+```js title="Hello, TensorFlow! Program in TensorFlow.js"
+import * as tf from '@tensorflow/tfjs';
+
+// Create a simple tensor with the message "Hello, TensorFlow!"
+const helloTensor = tf.tensor('Hello, TensorFlow!');
+
+// Print the tensor to the console
+helloTensor.print();
+```

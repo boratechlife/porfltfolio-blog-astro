@@ -1,0 +1,53 @@
+---
+title: Understanding Placeholders in TensorFlow.js
+description: >
+  Learn why placeholders are not needed in TensorFlow.js and how eager execution simplifies data handling. A beginner-friendly guide to TensorFlow.js.
+publishDate: 2024-10-17
+heroImage: '../../content/post/_images/2022-02-16-example-article-1/focus6.png'
+heroAlt: Eager execution in TensorFlow.js simplifies the process of feeding input data, eliminating the need for placeholders.
+tags:
+  - tensorflow.js
+  - machine learning
+  - javascript
+category: tutorials
+toc: true
+---
+
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import Alert from '../../components/Alert.astro';
+import Button from '../../components/Button.astro';
+
+## Why TensorFlow.js Doesn’t Need Placeholders
+
+In traditional TensorFlow (like TensorFlow 1.x), **placeholders** were used to define inputs that would be provided later during the execution phase. These were especially useful when you had a large dataset that couldn't be processed all at once, or when building a dynamic computation graph. However, in **TensorFlow.js**, placeholders are **not** necessary because TensorFlow.js uses **eager execution** by default.
+
+### What Is Eager Execution?
+
+Eager execution means that operations on tensors are executed immediately as they are called. You don’t need to define placeholders or feed data later. This makes working with tensors in TensorFlow.js much simpler, more interactive, and intuitive for both beginners and experts.
+
+### Example: No Need for Placeholders
+
+In TensorFlow.js, you don’t need to set up placeholders like in older TensorFlow versions. Instead, you directly define tensors and perform operations on them. Here’s a basic example:
+
+```js title="TensorFlow.js Example: No Placeholders Needed"
+import * as tf from '@tensorflow/tfjs';
+
+// Create a tensor directly (no placeholder required)
+const inputTensor = tf.tensor([1, 2, 3]);
+
+// Perform an operation (eager execution)
+const result = inputTensor.add(10);
+result.print();
+```
+
+```js
+Tensor
+   [11, 12, 13]
+
+```
+
+In this example, we define a tensor inputTensor and perform an addition operation immediately using eager execution. There’s no need for placeholders because the operation is computed as soon as the code is run.
+
+

@@ -1,0 +1,107 @@
+---
+title: Saving and Restoring Models in TensorFlow.js
+description: >
+  Learn how to save and restore TensorFlow.js models with this easy-to-follow tutorial. Perfect for beginners who want to understand how to manage machine learning models.
+publishDate: 2024-10-18
+heroImage: '../../content/post/_images/2022-02-16-example-article-1/focus6.png'
+heroAlt: How to save and restore models in TensorFlow.js for machine learning.
+tags:
+  - tensorflow.js
+  - machine learning
+  - javascript
+category: tutorials
+toc: true
+---
+
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import Alert from '../../components/Alert.astro';
+import Button from '../../components/Button.astro';
+
+## How to Save and Restore Models in TensorFlow.js
+
+In machine learning, saving and restoring models is super important. You don’t want to train your model from scratch every time you run your program. Instead, you can **save** the model after training and **restore** it later when you want to use it again. TensorFlow.js makes this process simple.
+
+In this tutorial, you’ll learn how to:
+1. **Save a model** after training.
+2. **Restore (load) a model** so you can use it later without retraining.
+
+Let’s get started!
+
+### Saving a Model in TensorFlow.js
+
+After you’ve trained your model, you can easily save it to your local machine or a remote server.
+
+Here’s how to save your model:
+
+```js title="Saving a Model in TensorFlow.js"
+import * as tf from '@tensorflow/tfjs';
+
+// Create a simple model
+const model = tf.sequential();
+model.add(tf.layers.dense({units: 10, inputShape: [5]}));
+model.add(tf.layers.dense({units: 1}));
+
+// Compile the model
+model.compile({
+  optimizer: 'sgd',
+  loss: 'meanSquaredError',
+});
+
+// Save the model to the browser's local storage
+async function saveModel() {
+  await model.save('localstorage://my-model');
+  console.log('Model saved to local storage!');
+}
+
+// Call the function to save the model
+saveModel();
+```
+
+### What Does This Code Do?
+
+- Define the Model: We create a simple neural network model with two layers.
+- Compile the Model: We define how the model will train (using an optimizer and a loss function).
+- Save the Model: We use the model.save() method to save the model. In this case, it’s saved to the browser's local storage, but you can also save it to a file or a remote server.
+
+### Restoring (Loading) a Saved Model
+Once you’ve saved a model, you can load it back and use it for making predictions, retraining, or further fine-tuning.
+Here’s how to restore a model:
+
+```js
+import * as tf from '@tensorflow/tfjs';
+
+// Load the model from local storage
+async function loadModel() {
+  const restoredModel = await tf.loadLayersModel('localstorage://my-model');
+  console.log('Model restored from local storage!');
+
+  // Use the model to make predictions or continue training
+  restoredModel.summary();
+}
+
+// Call the function to load the model
+loadModel();
+
+```
+
+### Other Save Options
+You can save models to different locations:
+
+- Local storage: localstorage://my-model
+- IndexedDB: indexeddb://my-model
+- Download as file: downloads://my-model
+- Remote server: Provide a server URL to save the model remotely.
+
+Example of saving the model as a downloadable file:
+
+```js
+
+async function saveModelAsFile() {
+  await model.save('downloads://my-model');
+  console.log('Model saved as a file!');
+}
+saveModelAsFile();
+
+```

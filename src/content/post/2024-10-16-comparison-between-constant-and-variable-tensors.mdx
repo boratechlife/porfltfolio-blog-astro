@@ -1,0 +1,63 @@
+---
+title: Constant Tensor vs Variable Tensor in TensorFlow.js
+description: >
+  Understand the difference between constant and variable tensors in TensorFlow.js, and how to use each effectively. Simple explanation with examples.
+publishDate: 2024-10-16
+heroImage: '../../content/post/_images/2022-02-16-example-article-1/focus6.png'
+heroAlt: A visual comparison between constant and variable tensors in TensorFlow.js.
+tags:
+  - tensorflow.js
+  - machine learning
+  - javascript
+category: tutorials
+toc: true
+---
+
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import Alert from '../../components/Alert.astro';
+import Button from '../../components/Button.astro';
+
+## What is the Difference Between a Constant Tensor and a Variable Tensor in TensorFlow.js?
+
+In TensorFlow.js, you can store data as **tensors**, but not all tensors are the same. Two common types are **constant tensors** and **variable tensors**. While they may seem similar, they behave differently and are used in different situations. Let's break it down!
+
+### Constant Tensor
+
+A **constant tensor** is a tensor whose values never change after being created. Think of it like a fixed number or a piece of data that you don't want to modify. Once you set the values, you can't update or change them. 
+
+For example:
+
+```js title="Creating a Constant Tensor"
+import * as tf from '@tensorflow/tfjs';
+
+// Create a constant tensor
+const constTensor = tf.tensor([1, 2, 3, 4]);
+console.log(constTensor.toString());
+```
+
+In this case, constTensor is a constant tensor and its values [1, 2, 3, 4] will remain the same throughout the program. This is useful when you have data that doesn’t need to be changed, like a fixed input for a machine learning model.
+### Variable Tensor
+
+A variable tensor, on the other hand, is a tensor that can be updated or modified. This makes it useful when you need to change the values during the program, like when training a machine learning model where the model’s weights get updated after each iteration.
+
+You can create a variable tensor using the tf.variable() function:
+
+```js caption="variable tensor"
+const varTensor = tf.variable(tf.tensor([1, 2, 3, 4]));
+console.log(varTensor.toString());
+
+// Now let's update the variable tensor
+varTensor.assign(tf.tensor([5, 6, 7, 8]));
+console.log(varTensor.toString());
+
+```
+
+Here, varTensor starts with the values [1, 2, 3, 4], but after using the assign function, the values are updated to [5, 6, 7, 8]. This is great when you want to change the data as the program runs.
+
+### Why is This Important?
+- Constant tensors are great for storing things like configuration settings, static inputs, or data that doesn't need to change.
+- Variable tensors are essential for machine learning models, where you need to update the model's weights as it learns from the data.
+
+<Alert variant="info" title="When to Use Constant vs. Variable Tensors"> Use constant tensors when your data won't change, and use variable tensors when you need to update the values during program execution, like in machine learning training loops. </Alert>

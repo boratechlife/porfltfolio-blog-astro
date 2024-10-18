@@ -1,0 +1,68 @@
+---
+title: "Element-Wise Multiplication of Tensors in TensorFlow.js"
+description: >
+  Learn how to perform element-wise multiplication of two tensors in TensorFlow.js with a clear example. A simple and practical guide for beginners.
+publishDate: 2024-10-16
+heroImage: '../../content/post/_images/2022-02-16-example-article-1/focus6.png'
+heroAlt: Element-wise multiplication of tensors in TensorFlow.js for numerical computation.
+tags:
+  - tensorflow.js
+  - machine learning
+  - javascript
+category: tutorials
+toc: true
+---
+
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import Alert from '../../components/Alert.astro';
+import Button from '../../components/Button.astro';
+
+## How to Perform Element-Wise Multiplication of Tensors in TensorFlow.js
+
+In TensorFlow.js, **element-wise multiplication** allows you to multiply two tensors by multiplying each corresponding element from the two tensors. This is a common operation in many machine learning tasks, where you need to apply transformations to data or weights in a neural network.
+
+In this guide, we’ll show you how to perform element-wise multiplication of two tensors using a simple example.
+
+### What Is Element-Wise Multiplication?
+
+Element-wise multiplication means multiplying each element in one tensor with the corresponding element in another tensor. For this operation to work, both tensors must have the same shape.
+
+For example:
+- If you have tensor `[a, b, c]` and tensor `[x, y, z]`, element-wise multiplication would result in `[a*x, b*y, c*z]`.
+
+### Example of Element-Wise Multiplication
+
+Let’s create two tensors and multiply them element by element.
+
+```js title="Element-Wise Multiplication of Tensors"
+import * as tf from '@tensorflow/tfjs';
+
+// Create two tensors
+const tensorA = tf.tensor([1, 2, 3]);
+const tensorB = tf.tensor([4, 5, 6]);
+
+// Perform element-wise multiplication
+const result = tensorA.mul(tensorB);
+console.log(result.toString());
+```
+
+```js
+Tensor
+   [4, 10, 18]
+
+```
+
+In this example:
+
+- Tensor tensorA contains [1, 2, 3].
+- Tensor tensorB contains [4, 5, 6].
+By performing element-wise multiplication, the result is [1*4, 2*5, 3*6], which equals [4, 10, 18].
+
+### Why Is Element-Wise Multiplication Useful?
+- Data Transformation: Element-wise multiplication is often used to apply transformations to each data point individually.
+- Neural Networks: In machine learning, you can use element-wise multiplication to update weights or apply specific operations to each element of a tensor in neural networks.
+- Efficiency: TensorFlow.js handles element-wise multiplication efficiently, even for large datasets, allowing you to process data quickly.
+
+<Alert variant="info" title="Use Case: Applying Element-Wise Multiplication"> In neural networks, element-wise multiplication can be used when you want to apply specific transformations to each element in the input data, such as scaling or normalizing. </Alert>
