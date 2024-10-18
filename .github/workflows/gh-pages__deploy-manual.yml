@@ -19,7 +19,7 @@ permissions:
 
 # set env vars in Github settings here
 env:
-  SITE_URL: 'https://nemanjam.github.io'
+  SITE_URL: 'https://kipronodenis.dev'
   PLAUSIBLE_SCRIPT_URL: 'https://plausible.arm1.kipronodenis.com/js/script.js'
   PLAUSIBLE_DOMAIN: 'kipronodenis.com'
 
@@ -46,7 +46,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build nemanjam.github.io
+      - name: Build kipronodenis.dev
         run: yarn build
 
       - name: Upload artifact

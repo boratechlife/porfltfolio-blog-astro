@@ -6,11 +6,11 @@ const pages = {
     description: 'Dolor velit excepteur cupidatat: Aute in fugiat id reprehenderit ipsum qui tempor fugiat. Excepteur tempor culpa velit duis quis enim aliquip.\n',
     noHero: false,
     heroImage: {
-      src: '/@fs/home/username/Desktop/nemanjam.github.io/src/content/post/_images/2024-01-20-example-article-4/river1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
+      src: '/@fs/home/username/Desktop/kipronodenis.dev/src/content/post/_images/2024-01-20-example-article-4/river1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
       width: 4608,
       height: 2592,
       format: 'jpg',
-      fsPath: '/home/username/Desktop/nemanjam.github.io/src/content/post/_images/2024-01-20-example-article-4/river1.jpg'
+      fsPath: '/home/username/Desktop/kipronodenis.dev/src/content/post/_images/2024-01-20-example-article-4/river1.jpg'
     },
     heroAlt: 'sunt aute reprehenderit exercitation cillum culpa dolor dolor commodo ea ipsum tempor nisi aliqua.',
     toc: true,
@@ -24,11 +24,11 @@ const pages = {
     description: 'Dolor velit excepteur cupidatat: Aute in fugiat id reprehenderit ipsum qui tempor fugiat. Excepteur tempor culpa velit duis quis enim aliquip. Nostrud irure nulla enim in commodo duis anim veniam irure fugiat cillum.\n',
     noHero: false,
     heroImage: {
-      src: '/@fs/home/username/Desktop/nemanjam.github.io/src/content/post/_images/2024-01-21-example-article-5/morning1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
+      src: '/@fs/home/username/Desktop/kipronodenis.dev/src/content/post/_images/2024-01-21-example-article-5/morning1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
       width: 4608,
       height: 2592,
       format: 'jpg',
-      fsPath: '/home/username/Desktop/nemanjam.github.io/src/content/post/_images/2024-01-21-example-article-5/morning1.jpg'
+      fsPath: '/home/username/Desktop/kipronodenis.dev/src/content/post/_images/2024-01-21-example-article-5/morning1.jpg'
     },
     heroAlt: 'sunt aute reprehenderit exercitation cillum culpa dolor dolor commodo ea ipsum tempor nisi aliqua.',
     toc: true,
@@ -42,11 +42,11 @@ const pages = {
     description: 'Dolor velit excepteur cupidatat: Aute in fugiat id reprehenderit ipsum qui tempor fugiat. Excepteur tempor culpa velit duis quis enim aliquip.\n',
     noHero: false,
     heroImage: {
-      src: '/@fs/home/username/Desktop/nemanjam.github.io/src/content/post/_images/2023-01-19-example-article-3/lure1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
+      src: '/@fs/home/username/Desktop/kipronodenis.dev/src/content/post/_images/2023-01-19-example-article-3/lure1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
       width: 4608,
       height: 2592,
       format: 'jpg',
-      fsPath: '/home/username/Desktop/nemanjam.github.io/src/content/post/_images/2023-01-19-example-article-3/lure1.jpg'
+      fsPath: '/home/username/Desktop/kipronodenis.dev/src/content/post/_images/2023-01-19-example-article-3/lure1.jpg'
     },
     heroAlt: 'sunt aute reprehenderit exercitation cillum culpa dolor dolor commodo ea ipsum tempor nisi aliqua.',
     toc: true,
@@ -60,11 +60,11 @@ const pages = {
     description: 'Dolor velit excepteur cupidatat: Aute in fugiat id reprehenderit ipsum qui tempor fugiat. Excepteur tempor culpa velit duis quis enim aliquip.\n',
     noHero: false,
     heroImage: {
-      src: '/@fs/home/username/Desktop/nemanjam.github.io/src/content/post/_images/2022-03-17-example-article-2/riverside1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
+      src: '/@fs/home/username/Desktop/kipronodenis.dev/src/content/post/_images/2022-03-17-example-article-2/riverside1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
       width: 4608,
       height: 2592,
       format: 'jpg',
-      fsPath: '/home/username/Desktop/nemanjam.github.io/src/content/post/_images/2022-03-17-example-article-2/riverside1.jpg'
+      fsPath: '/home/username/Desktop/kipronodenis.dev/src/content/post/_images/2022-03-17-example-article-2/riverside1.jpg'
     },
     heroAlt: 'sunt aute reprehenderit exercitation cillum culpa dolor dolor commodo ea ipsum tempor nisi aliqua.',
     toc: true,
@@ -78,11 +78,11 @@ const pages = {
     description: 'Et dolor tempor velit: Aute ad tempor incididunt labore dolore incididunt in quis officia quis est. Ullamco aute et ex velit proident non.\n',
     noHero: false,
     heroImage: {
-      src: '/@fs/home/username/Desktop/nemanjam.github.io/src/content/post/_images/2022-02-16-example-article-1/focus1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
+      src: '/@fs/home/username/Desktop/kipronodenis.dev/src/content/post/_images/2022-02-16-example-article-1/focus1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
       width: 4608,
       height: 2592,
       format: 'jpg',
-      fsPath: '/home/username/Desktop/nemanjam.github.io/src/content/post/_images/2022-02-16-example-article-1/focus1.jpg'
+      fsPath: '/home/username/Desktop/kipronodenis.dev/src/content/post/_images/2022-02-16-example-article-1/focus1.jpg'
     },
     heroAlt: 'sunt aute reprehenderit exercitation cillum culpa dolor dolor commodo ea ipsum tempor nisi aliqua.',
     toc: true,
@@ -95,11 +95,11 @@ const pages = {
     description: 'Description of the third project',
     publishDate: 2024-05-16T00:00:00.000Z,
     heroImage: {
-      src: '/@fs/home/username/Desktop/nemanjam.github.io/src/content/project/_images/2024-05-16-example-project-3/morning1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
+      src: '/@fs/home/username/Desktop/kipronodenis.dev/src/content/project/_images/2024-05-16-example-project-3/morning1.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
       width: 4608,
       height: 2592,
       format: 'jpg',
-      fsPath: '/home/username/Desktop/nemanjam.github.io/src/content/project/_images/2024-05-16-example-project-3/morning1.jpg'
+      fsPath: '/home/username/Desktop/kipronodenis.dev/src/content/project/_images/2024-05-16-example-project-3/morning1.jpg'
     },
     heroAlt: 'Hero image',
     draft: false
@@ -110,11 +110,11 @@ const pages = {
     publishDate: 2024-03-15T00:00:00.000Z,
     updatedDate: 2024-04-21T00:00:00.000Z,
     heroImage: {
-      src: '/@fs/home/username/Desktop/nemanjam.github.io/src/content/project/_images/2024-03-15-example-project-2/cyco5.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
+      src: '/@fs/home/username/Desktop/kipronodenis.dev/src/content/project/_images/2024-03-15-example-project-2/cyco5.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
       width: 4608,
       height: 2592,
       format: 'jpg',
-      fsPath: '/home/username/Desktop/nemanjam.github.io/src/content/project/_images/2024-03-15-example-project-2/cyco5.jpg'
+      fsPath: '/home/username/Desktop/kipronodenis.dev/src/content/project/_images/2024-03-15-example-project-2/cyco5.jpg'
     },
     heroAlt: 'This is bicycle',
     draft: false
@@ -124,11 +124,11 @@ const pages = {
     description: 'Description of the first project',
     publishDate: 2024-02-13T00:00:00.000Z,
     heroImage: {
-      src: '/@fs/home/username/Desktop/nemanjam.github.io/src/content/project/_images/2024-02-13-example-project-1/flowers-store.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
+      src: '/@fs/home/username/Desktop/kipronodenis.dev/src/content/project/_images/2024-02-13-example-project-1/flowers-store.jpg?origWidth=4608&origHeight=2592&origFormat=jpg',
       width: 4608,
       height: 2592,
       format: 'jpg',
-      fsPath: '/home/username/Desktop/nemanjam.github.io/src/content/project/_images/2024-02-13-example-project-1/flowers-store.jpg'
+      fsPath: '/home/username/Desktop/kipronodenis.dev/src/content/project/_images/2024-02-13-example-project-1/flowers-store.jpg'
     },
     heroAlt: 'Flowers store',
     draft: false

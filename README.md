@@ -7,7 +7,7 @@ This is the repository for my coding blog [deniskiprono.com](https://deniskipron
 | Method       | Url                                      |
 | :----------- | :--------------------------------------- |
 | Nginx        | https://deniskiprono.com                 |
-| Github Pages | https://nemanjam.github.io               |
+| Github Pages | https://kipronodenis.dev                 |
 | Docker       | https://nmc-docker.arm1.deniskiprono.com |
 
 #### Plausible analytics
@@ -68,7 +68,7 @@ SITE_URL=http://localhost:3000
 ```bash
 # .env.production
 
-SITE_URL=https://deniskiprono.com
+SITE_URL=https://deniskiprono.dev
 
 # set to true to preview draft posts in production
 PREVIEW_MODE=
@@ -143,7 +143,7 @@ All Nginx deployments come down to building the website and copying the compiled
 # package.json
 
 # set your SITE_URL
-"build:nginx": "SITE_URL='https://deniskiprono.com' astro build",
+"build:nginx": "SITE_URL='https://deniskiprono.dev' astro build",
 
 # build the app
 yarn build:nginx
@@ -206,17 +206,17 @@ After that you can build and push multi-platform images locally.
 # open terminal and login with your Dockerhub account, both locally and on remote server
 docker login my-user my-pass
 
-# replace "deniskiprono/nemanjam.github.io" with your image name
+# replace "deniskiprono/kipronodenis.dev" with your image name
 # set ARG_SITE_URL_ARM64 to your production url
 # set correct architecture for your production server --platform linux/arm64 or linux/amd64
-"docker:build:push:arm": "docker buildx build -f ./docker/Dockerfile -t deniskiprono/nemanjam.github.io --build-arg ARG_SITE_URL_ARM64='https://nmc-docker.arm1.deniskiprono.com' --platform linux/arm64 --progress=plain --push .",
+"docker:build:push:arm": "docker buildx build -f ./docker/Dockerfile -t deniskiprono/deniskiprono.dev --build-arg ARG_SITE_URL_ARM64='https://nmc-docker.arm1.deniskiprono.com' --platform linux/arm64 --progress=plain --push .",
 
 # build and push Docker image, replace "arm" with your architecture
 yarn docker:build:push:arm
 
 # replace "~/traefik-proxy/apps/nmc-docker" with your path to docker-compose.yml
-# replace "deniskiprono/nemanjam.github.io" with your image name
-"deploy:docker": "bash scripts/deploy-docker.sh arm1 '~/traefik-proxy/apps/nmc-docker' deniskiprono/nemanjam.github.io",
+# replace "deniskiprono/kipronodenis.dev" with your image name
+"deploy:docker": "bash scripts/deploy-docker.sh arm1 '~/traefik-proxy/apps/nmc-docker' deniskiprono/deniskiprono.dev",
 
 # pull and run latest image on your production server
 yarn deploy:docker

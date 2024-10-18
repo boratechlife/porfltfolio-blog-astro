@@ -1,10 +1,10 @@
-# nemanjam.github.io
+# kipronodenis.dev
 
 ## Mirrors
 
 - https://kipronodenis.com/
 - https://nmc-docker.arm1.kipronodenis.com/
-- https://nemanjam.github.io/
+- https://kipronodenis.dev/
 
 ## References
 

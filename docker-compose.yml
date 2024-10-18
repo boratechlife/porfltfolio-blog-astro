@@ -5,7 +5,7 @@ version: '3.8'
 services:
   nmc-docker:
     container_name: nmc-docker
-    # image: nemanjamitic/nemanjam.github.io:latest
+    # image: nemanjamitic/kipronodenis.dev:latest
     build:
       context: .
       dockerfile: ./docker/Dockerfile

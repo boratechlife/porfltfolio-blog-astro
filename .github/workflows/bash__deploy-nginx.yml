@@ -13,8 +13,8 @@ on:
   workflow_dispatch:
 
 env:
-  SITE_URL: 'https://kipronodenis.com'
-  PLAUSIBLE_SCRIPT_URL: 'https://plausible.arm1.kipronodenis.com/js/script.js'
+  SITE_URL: 'https://deniskiprono.dev'
+  PLAUSIBLE_SCRIPT_URL: 'https://plausible.arm1.deniskiprono.dev/js/script.js'
   SSH_ALIAS: arm1
   # can be omitted for main domain, will default to SITE_URL
   PLAUSIBLE_DOMAIN: 'kipronodenis.com'

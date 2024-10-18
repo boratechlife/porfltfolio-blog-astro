@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
 
 env:
-  SITE_URL: 'https://kipronodenis.com'
+  SITE_URL: 'https://kipronodenis.dev'
   PLAUSIBLE_SCRIPT_URL: 'https://plausible.arm1.kipronodenis.com/js/script.js'
-  PLAUSIBLE_DOMAIN: 'kipronodenis.com'
+  PLAUSIBLE_DOMAIN: 'kipronodenis.dev'
 
 jobs:
   deploy:
