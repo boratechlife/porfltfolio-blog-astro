@@ -1,4 +1,4 @@
-import { PLAUSIBLE_DOMAIN, PLAUSIBLE_SCRIPT_URL, SITE_URL } from 'astro:env/client';
+import { PLAUSIBLE_DOMAIN, PLAUSIBLE_SCRIPT_URL } from 'astro:env/client';
 
 import { configClientSchema } from '@/schemas/config';
 import { validateData } from '@/utils/validation';
@@ -7,7 +7,7 @@ import type { ConfigClientType } from '@/types/config';
 
 const configClientData: ConfigClientType = {
   /** all urls without '/' */
-  SITE_URL,
+  SITE_URL: 'https://deniskiprono.dev',
   SITE_TITLE: 'Denis kiprono',
   SITE_DESCRIPTION: 'I am Denis, Frontend developer',
   PLAUSIBLE_SCRIPT_URL,
@@ -22,7 +22,7 @@ const configClientData: ConfigClientType = {
   AUTHOR_GITHUB: 'https://github.com/boratechlife/',
   AUTHOR_LINKEDIN: 'https://www.linkedin.com/in/kiprono-denis-138562185/',
   AUTHOR_TWITTER: 'https://www.fiverr.com/boratechlife',
-  AUTHOR_YOUTUBE: 'https://www.youtube.com/@nemanja_codes',
+  AUTHOR_YOUTUBE: 'https://www.youtube.com/@Denis_codes',
   REPO_URL: 'https://github.com/boratechlife/',
 };
 

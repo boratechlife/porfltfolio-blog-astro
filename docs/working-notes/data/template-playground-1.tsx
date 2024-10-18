@@ -65,7 +65,7 @@ style={{
           height={120}
           style={{ borderRadius: '50%', marginRight: 16 }}
         />
-        Nemanja Mitic
+        Denis kiprono
       </div>
     </div>
     <div

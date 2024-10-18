@@ -206,14 +206,14 @@ const pages = {
     title: 'Blog',
     description: 'Read and learn form our well researched and amazing coding blogs and tutorials'
   },
-  'lists/blog/tags': { title: 'Tags', description: 'I am Nemanja, full stack developer' },
+  'lists/blog/tags': { title: 'Tags', description: 'I am Denis, full stack developer' },
   'lists/blog/explore': {
     title: 'Explore',
-    description: 'I am Nemanja, full stack developer'
+    description: 'I am Denis, full stack developer'
   },
   'lists/blog/categories': {
     title: 'Categories',
-    description: 'I am Nemanja, full stack developer'
+    description: 'I am Denis, full stack developer'
   },
   'lists/projects': {
     title: 'Projects',

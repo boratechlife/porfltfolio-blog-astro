@@ -36,8 +36,8 @@ const configData: ConfigType = {
   AUTHOR_GITHUB: 'https://github.com/boratechlife/',
   AUTHOR_LINKEDIN: 'https://www.linkedin.com/in/kiprono-denis-138562185/',
   AUTHOR_TWITTER: 'https://www.fiverr.com/boratechlife',
-  AUTHOR_YOUTUBE: 'https://www.youtube.com/@nemanja_codes',
-  REPO_URL: 'https://github.com/nemanjam/kipronodenis.dev',
+  AUTHOR_YOUTUBE: 'https://www.youtube.com/@Denis_codes',
+  REPO_URL: 'https://github.com/Denism/kipronodenis.dev',
 };
 
 // todo: Config should go into import.meta.env in astro.config.ts
