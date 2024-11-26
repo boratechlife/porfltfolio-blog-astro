@@ -22,6 +22,12 @@ export const TAGS = [
   'machine learning',
   'deep learning',
   'javascript',
+  'CNN',
+  'neural networks',
+  'tutorials',
+  'regularization',
+  'transfer learning',
+  'pre-trained models',
 ] as const;
 
 /** adjust this later */

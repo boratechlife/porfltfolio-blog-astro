@@ -1,0 +1,148 @@
+---
+title: Implementing a Convolutional Neural Network (CNN) in TensorFlow.js Using Tabular Data
+description: |
+  Learn how to implement a convolutional neural network (CNN) in TensorFlow.js using a tabular dataset. This step-by-step guide covers data preprocessing, model architecture, training, and evaluation for binary classification tasks.
+publishDate: 2024-11-26
+heroImage: '../../content/post/_images/2022-02-16-example-article-1/focus6.png'
+heroAlt: Designing a CNN model for tabular data in TensorFlow.js.
+tags:
+  - tensorflow.js
+  - CNN
+  - machine learning
+  - neural networks
+  - tutorials
+category: tutorials
+toc: true
+---
+
+## Implementing a CNN in TensorFlow.js Using Tabular Data
+
+Convolutional Neural Networks (CNNs) are typically used for image data, but their underlying principles can be applied to structured tabular datasets by reshaping the data to mimic image-like structures. In this guide, we explore how to implement a CNN for binary classification using a sample tabular dataset in TensorFlow.js.
+
+---
+
+### Dataset Overview
+
+The dataset includes the following columns:
+- **Numerical Features**: `high`, `low`, `bullishCandles`, `entryPrice`, etc.
+- **Categorical Features**: `tradeType` (e.g., "Buy").
+- **Target Variable**: `outcomeBinary` (`win` or `lose`).
+
+Our goal is to classify whether the outcome (`win` or `lose`) occurs based on these features.
+
+---
+
+### Step 1: Preprocessing the Dataset
+
+To train a CNN, the tabular data needs to be reshaped into a format compatible with convolutional layers, similar to how image data is represented.
+
+```javascript title="Preprocessing the Tabular Data"
+import * as tf from '@tensorflow/tfjs';
+
+// Raw tabular dataset
+const rawData = [
+  { high: 2363.35, low: 2361.75, entryPrice: 2363.43, tradeType: 'Buy', outcomeBinary: 'win' },
+  { high: 2363.35, low: 2361.75, entryPrice: 2363.27, tradeType: 'Buy', outcomeBinary: 'win' },
+  { high: 2363.93, low: 2362.08, entryPrice: 2363.99, tradeType: 'Buy', outcomeBinary: 'lose' },
+  // More rows...
+];
+
+// Map categorical labels to numerical values
+const preprocessData = (data) => data.map(row => ({
+  high: row.high,
+  low: row.low,
+  entryPrice: row.entryPrice,
+  outcome: row.outcomeBinary === 'win' ? 1 : 0, // Binary label
+}));
+
+const processedData = preprocessData(rawData);
+
+// Extract features and labels
+const features = processedData.map(row => [row.high, row.low, row.entryPrice]);
+const labels = processedData.map(row => row.outcome);
+
+// Convert to tensors
+const xs = tf.tensor3d(features, [features.length, 3, 1]); // Reshape to 3D tensor for CNN
+const ys = tf.tensor1d(labels, 'int32');
+```
+
+### Step 2: Designing the CNN Architecture
+We will design a simple CNN with convolutional layers, pooling layers, and fully connected layers to classify the outcomes.
+
+```js
+const model = tf.sequential();
+
+// Add a convolutional layer
+model.add(tf.layers.conv1d({
+  inputShape: [3, 1], // 3 features, 1 channel
+  filters: 16,        // Number of filters
+  kernelSize: 2,      // Kernel size
+  activation: 'relu'
+}));
+
+// Add a pooling layer
+model.add(tf.layers.maxPooling1d({ poolSize: 2 }));
+
+// Add another convolutional layer
+model.add(tf.layers.conv1d({
+  filters: 32,
+  kernelSize: 2,
+  activation: 'relu'
+}));
+
+// Flatten the output
+model.add(tf.layers.flatten());
+
+// Add a dense layer
+model.add(tf.layers.dense({ units: 64, activation: 'relu' }));
+
+// Add the output layer
+model.add(tf.layers.dense({ units: 1, activation: 'sigmoid' })); // Binary classification
+
+// Compile the model
+model.compile({
+  optimizer: tf.train.adam(),
+  loss: 'binaryCrossentropy',
+  metrics: ['accuracy'],
+});
+
+
+```
+
+### Step 3: Training the Model
+We will train the model using the preprocessed data.
+
+```js
+(async () => {
+  await model.fit(xs, ys, {
+    epochs: 50,
+    batchSize: 16,
+    validationSplit: 0.2, // Reserve 20% for validation
+    callbacks: {
+      onEpochEnd: (epoch, logs) => {
+        console.log(`Epoch ${epoch + 1}: Loss = ${logs.loss}, Accuracy = ${logs.acc}`);
+      },
+    },
+  });
+})();
+
+```
+
+## Step 4: Evaluating the Model
+After training, evaluate the model on unseen data to test its performance.
+
+```js
+const evaluation = model.evaluate(xs, ys);
+evaluation[0].print(); // Loss
+evaluation[1].print(); // Accuracy
+
+```
+
+### Best Practices for Using CNNs with Tabular Data
+- **Reshape Input Data**: Transform tabular data into 3D tensors to utilize convolutional layers.
+
+- **Feature Scaling:** Normalize numerical features to improve model performance.
+
+- **Regularization:** Use dropout layers to reduce overfitting.
+
+- **Learning Rate Tuning:** Experiment with learning rates to optimize training.
