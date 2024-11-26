@@ -15,7 +15,21 @@ const { metadata } = Astro.props as BaseProps;
 ---
 
 <html lang="en">
-  <meta name="google-adsense-account" content="ca-pub-2299757292141190">
+  <meta name="google-adsense-account" content="ca-pub-2299757292141190" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VV1GSW57WH"></script>
+  <script defer>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      // eslint-disable-next-line no-undef
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-VV1GSW57WH');
+  </script>
   <BaseHead {metadata} />
   <body class="relative flex flex-col min-h-screen bg-base-100 transition-colors duration-500">
     <Header />

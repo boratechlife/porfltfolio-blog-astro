@@ -1,0 +1,94 @@
+---
+title: Implementing a Basic Linear Regression Model in TensorFlow.js
+description: |
+  Learn how to create a simple linear regression model using TensorFlow.js, focusing on core concepts such as defining the model, training, and making predictions.
+publishDate: 2024-11-20
+heroImage: '../../content/post/_images/2022-02-16-example-article-1/focus6.png'
+heroAlt: Basic Linear Regression in TensorFlow.js.
+tags:
+  - tensorflow.js
+  - machine learning
+  - javascript
+category: tutorials
+toc: true
+---
+
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import Alert from '../../components/Alert.astro';
+import Button from '../../components/Button.astro';
+
+## Building a Linear Regression Model with TensorFlow.js
+
+Linear regression is a fundamental concept in machine learning used to predict a target variable based on a linear relationship with one or more features. TensorFlow.js enables you to implement this directly in JavaScript, allowing for powerful in-browser computations.
+
+### Key Steps to Implement Linear Regression
+
+1. **Define the Model Architecture**
+2. **Compile the Model**
+3. **Train the Model**
+4. **Make Predictions**
+
+### Example: A Simple Linear Regression Model
+
+Below is a step-by-step guide to creating a basic linear regression model using TensorFlow.js.
+
+```ts title="Linear Regression in TensorFlow.js"
+import * as tf from '@tensorflow/tfjs';
+
+// Step 1: Define the model architecture
+const model = tf.sequential();
+model.add(tf.layers.dense({ units: 1, inputShape: [1] })); // Single input and output
+
+// Step 2: Compile the model
+model.compile({
+  optimizer: tf.train.sgd(0.1), // Stochastic Gradient Descent with a learning rate of 0.1
+  loss: 'meanSquaredError',    // Loss function
+});
+
+// Step 3: Prepare the training data
+const xs = tf.tensor1d([1, 2, 3, 4]); // Features
+const ys = tf.tensor1d([1, 3, 5, 7]); // Labels (y = 2x - 1)
+
+// Step 4: Train the model
+(async () => {
+  await model.fit(xs, ys, {
+    epochs: 100, // Number of training iterations
+    verbose: 0,  // Suppress training logs
+  });
+  
+  // Step 5: Make predictions
+  const prediction = model.predict(tf.tensor1d([5]));
+  prediction.print(); // Outputs: [9], since y = 2(5) - 1
+})();
+```
+
+Explanation of the Code
+Model Definition: A sequential model is used, with a single dense layer representing 
+𝑦=𝑤𝑥+𝑏
+y=wx+b.
+Compilation: The model is compiled with the sgd optimizer and meanSquaredError loss function.
+Training Data: xs represents the input data, and ys represents the corresponding outputs.
+Training the Model: The model is trained over 100 epochs to minimize the loss function.
+Prediction: After training, the model predicts the value of 𝑦 y for a given 𝑥  x.
+
+
+### Visualizing the Results
+
+Visual tools such as tfvis can help monitor the training process and validate the model's accuracy. For more complex datasets or models, visualization becomes increasingly important
+
+```js
+import * as tfvis from '@tensorflow/tfjs-vis';
+
+// Monitor training
+const history = await model.fit(xs, ys, {
+  epochs: 100,
+  callbacks: tfvis.show.fitCallbacks(
+    { name: 'Training Performance' },
+    ['loss'],
+    { height: 200, callbacks: ['onEpochEnd'] }
+  ),
+});
+
+```

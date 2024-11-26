@@ -1,0 +1,114 @@
+---
+title: Evaluating the Performance of a TensorFlow.js Model Using Metrics
+description: |
+  Understand how to evaluate the performance of a TensorFlow.js model using metrics like accuracy, precision, recall, and loss. Learn practical examples for different tasks.
+publishDate: 2024-11-24
+heroImage: '../../content/post/_images/2022-02-16-example-article-1/focus6.png'
+heroAlt: How to evaluate a TensorFlow.js model using metrics.
+tags:
+  - tensorflow.js
+  - machine learning
+  - javascript
+category: tutorials
+toc: true
+---
+
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import Alert from '../../components/Alert.astro';
+import Button from '../../components/Button.astro';
+
+## How to Evaluate the Performance of a TensorFlow.js Model Using Metrics
+
+When building machine learning models, evaluating their performance is critical to understanding how well they generalize to unseen data. TensorFlow.js provides a variety of metrics to assess model performance for both classification and regression tasks.
+
+### Key Metrics for Evaluation
+
+1. **Accuracy**:
+   - Measures the percentage of correctly predicted instances out of all instances.
+   - Suitable for balanced datasets in classification tasks.
+
+2. **Precision**:
+   - Measures the proportion of true positives out of all positive predictions.
+   - Useful in cases where false positives carry a higher cost.
+
+3. **Recall**:
+   - Measures the proportion of true positives out of all actual positive instances.
+   - Useful in cases where false negatives are critical (e.g., detecting diseases).
+
+4. **Loss**:
+   - Indicates how well the model fits the data by calculating the error between predicted and actual values.
+   - Common for both regression and classification tasks.
+
+---
+
+### Example: Evaluating a Model Using Accuracy
+
+Here's how to evaluate a binary classification model in TensorFlow.js:
+
+```ts title="Evaluating with Accuracy in TensorFlow.js"
+import * as tf from '@tensorflow/tfjs';
+
+// Step 1: Define and compile the model
+const model = tf.sequential();
+model.add(tf.layers.dense({ units: 1, activation: 'sigmoid', inputShape: [2] }));
+model.compile({
+  optimizer: 'adam',
+  loss: 'binaryCrossentropy',
+  metrics: ['accuracy'], // Specify accuracy as a metric
+});
+
+// Step 2: Prepare training and testing data
+const xs = tf.tensor2d([[0, 0], [0, 1], [1, 0], [1, 1]]);
+const ys = tf.tensor2d([[0], [1], [1], [0]]); // XOR problem
+
+// Step 3: Train the model
+(async () => {
+  await model.fit(xs, ys, {
+    epochs: 100,
+    validationSplit: 0.2, // Split data for validation
+  });
+
+  // Step 4: Evaluate the model on new data
+  const testXs = tf.tensor2d([[0, 1], [1, 1]]);
+  const testYs = tf.tensor2d([[1], [0]]);
+  const evaluation = model.evaluate(testXs, testYs);
+
+  // Log the evaluation metrics
+  evaluation.forEach(metric => metric.print());
+})();
+```
+
+Custom Metrics for Advanced Evaluation
+You can define custom metrics to evaluate specific performance aspects of your model. For example:
+
+```ts
+const precision = (yTrue, yPred) => {
+  const truePositives = tf.sum(tf.mul(yTrue, tf.round(yPred))); // TP
+  const predictedPositives = tf.sum(tf.round(yPred));           // TP + FP
+  return tf.div(truePositives, predictedPositives);
+};
+
+// Compile the model with a custom precision metric
+model.compile({
+  optimizer: 'adam',
+  loss: 'binaryCrossentropy',
+  metrics: [precision], // Use custom precision metric
+});
+
+```
+
+
+## Choosing the Right Metric for Your Use Case
+
+1. **Classification Tasks**:
+   - Use `accuracy` for balanced datasets.
+   - Use `precision` and `recall` for imbalanced datasets where false positives or false negatives are costly.
+
+2. **Regression Tasks**:
+   - Use `meanAbsoluteError` (MAE) or `meanSquaredError` (MSE) for evaluating how well the model predicts continuous values.
+
+3. **Multi-Class Classification**:
+   - Use `categoricalAccuracy` or `topKCategoricalAccuracy` for ranking-based evaluations.
+
