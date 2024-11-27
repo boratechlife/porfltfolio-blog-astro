@@ -28,6 +28,8 @@ export const TAGS = [
   'regularization',
   'transfer learning',
   'pre-trained models',
+  'RNN',
+  'time series',
 ] as const;
 
 /** adjust this later */
