@@ -30,6 +30,7 @@ export const TAGS = [
   'pre-trained models',
   'RNN',
   'time series',
+  'data preprocessing',
 ] as const;
 
 /** adjust this later */
