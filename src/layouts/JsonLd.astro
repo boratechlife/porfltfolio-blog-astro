@@ -1,0 +1,25 @@
+---
+// JsonLd.astro
+interface Props {
+  title: string;
+  description: string|any;
+  url: string;
+  tags?: string[];
+}
+
+const { title, description, url, tags = [] } = Astro.props as Props;
+
+// Construct the JSON-LD object
+const jsonLdData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  name: title,
+  description: description,
+  url: url,
+  keywords: tags.join(', '),
+  areaServed: ["US", "CA"]
+};
+---
+<script type="application/ld+json"  set:html={JSON.stringify(jsonLdData)}>
+
+</script>

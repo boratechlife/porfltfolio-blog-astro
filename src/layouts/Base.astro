@@ -6,19 +6,51 @@ import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
 import ScrollToTop from '@/components/react/ScrollToTop';
 import Breakpoints from '@/components/utils/breakpoints.astro';
+import JsonLd from './JsonLd.astro';
 
 import type { BaseHeadProps } from '@/components/BaseHead.astro';
 
 export interface BaseProps extends BaseHeadProps {}
 
 const { metadata } = Astro.props as BaseProps;
+const pageUrl = new URL(Astro.url.pathname, import.meta.env.SITE_URL).toString();
 ---
 
-<html lang="en">
+<html lang="en-US">
   <meta name="google-adsense-account" content="ca-pub-2299757292141190" />
+  <meta name="geo.region" content="US-CA" />
+  <!-- California, USA -->
+  <meta name="geo.region" content="CA" />
+  <!-- Canada -->
+  <meta name="geo.placename" content="Canada, United States" />
+  <meta name="geo.position" content="56.1304;-106.3468" />
+  <!-- Canada's lat/long -->
+  <meta name="ICBM" content="56.1304, -106.3468" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VV1GSW57WH" is:inline></script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Denis kiprono",
+      "url": "https://www.deniskiprono.dev/",
+      "potentialAction": {
+        "@type": "Frontend Expert",
+        "target": "hhttps://www.deniskiprono.dev/about",
+        "query-input": "required name=Frontend"
+      },
+      "areaServed": ["US", "CA"]
+    }
+  </script>
+
+  <JsonLd
+    title={metadata.title}
+    description={metadata.description}
+    url={pageUrl}
+    tags={metadata.tags}
+  />
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
 

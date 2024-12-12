@@ -31,6 +31,7 @@ export const TAGS = [
   'RNN',
   'time series',
   'data preprocessing',
+  'feature engineering',
 ] as const;
 
 /** adjust this later */

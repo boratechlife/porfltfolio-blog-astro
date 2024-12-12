@@ -13,10 +13,12 @@ export type AnyCollection = CollectionEntry<CollectionType>;
 export interface Metadata {
   title: string;
   description?: string;
+  tags?: string[];
   /** Must be url. */
   image?: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface PaginationProps
   extends Pick<
     Page<AnyCollection>,
