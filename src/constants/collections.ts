@@ -32,6 +32,7 @@ export const TAGS = [
   'time series',
   'data preprocessing',
   'feature engineering',
+  'model selection',
 ] as const;
 
 /** adjust this later */

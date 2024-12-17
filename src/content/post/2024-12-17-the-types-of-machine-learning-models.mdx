@@ -1,0 +1,124 @@
+---
+title: "Types of Machine Learning Models: Explained with Examples"
+description: >
+  Explore the three main types of machine learning models—supervised, unsupervised, and reinforcement learning—with clear explanations and practical examples in TensorFlow.js.
+publishDate: 2024-12-16
+heroImage: '../../content/post/_images/2022-02-16-example-article-1/ml_model_types.png.png'
+heroAlt: Overview of machine learning models and their applications in real-world scenarios.
+tags:
+  - tensorflow.js
+  - machine learning
+  - tutorials
+category: guides
+toc: true
+---
+
+import { Alert } from '../../components/Alert.astro';
+
+## What Are the Different Types of Machine Learning Models?
+
+Machine learning models can be categorized into three main types based on how they learn from data: **supervised learning**, **unsupervised learning**, and **reinforcement learning**. Each type is suited to specific tasks and has unique applications.
+
+---
+
+### 1. Supervised Learning
+
+**Definition**: Supervised learning involves training a model on a labeled dataset, where each input has a corresponding output. The model learns to map inputs to outputs by minimizing the error between predictions and actual labels.
+
+**Common Use Cases**:
+- **Classification**: Predicting categories (e.g., spam detection in emails).
+- **Regression**: Predicting continuous values (e.g., house price prediction).
+
+**Example in TensorFlow.js**: Predicting house prices based on features like square footage and number of bedrooms.
+
+```js
+import * as tf from '@tensorflow/tfjs';
+
+// Dataset
+const features = tf.tensor2d([[1000], [1500], [2000], [2500]]);
+const labels = tf.tensor2d([[300000], [450000], [600000], [750000]]);
+
+// Model
+const model = tf.sequential();
+model.add(tf.layers.dense({ inputShape: [1], units: 1 }));
+
+model.compile({ optimizer: 'sgd', loss: 'meanSquaredError' });
+
+// Train the model
+model.fit(features, labels, { epochs: 50 }).then(() => {
+  // Predict
+  model.predict(tf.tensor2d([[1800]])).print();
+});
+```
+
+### 2. Unsupervised Learning
+**Definition:** Unsupervised learning deals with unlabeled data. The model tries to find patterns or structure in the data, such as grouping similar items or reducing dimensionality.
+
+#### Common Use Cases:
+
+- **Clustering:** Grouping similar data points (e.g., customer segmentation).
+- **Dimensionality Reduction:** Reducing the number of features while retaining information (e.g., PCA for image compression).
+
+#### Example in TensorFlow.js: Clustering customers based on purchasing behavior.
+
+```js
+import * as tf from '@tensorflow/tfjs';
+
+// Sample dataset
+const data = tf.tensor2d([
+  [1, 1],
+  [2, 2],
+  [3, 3],
+  [10, 10],
+  [11, 11],
+  [12, 12],
+]);
+
+// Using k-means clustering with TensorFlow.js isn't built-in but can be implemented.
+// Example: Centroid-based clustering
+const centroids = tf.tensor2d([
+  [2, 2],
+  [11, 11],
+]);
+
+// Assign data points to clusters (concept demonstration)
+data.sub(centroids.expandDims(0)).square().sum(-1).argMin(-1).print();
+
+```
+### 3. Reinforcement Learning
+ **Definition:** Reinforcement learning trains a model to make decisions by interacting with an environment. The model learns to maximize rewards by trying different actions and observing the outcomes.
+
+#### Common Use Cases:
+
+- **Game Playing:** Training an agent to play games like chess or Go.
+- **Robotics:** Teaching robots to perform tasks in dynamic environments.
+#### Example in TensorFlow.js: Training an agent to maximize score in a simple grid environment.
+
+```js
+import * as tf from '@tensorflow/tfjs';
+
+// Simplified reinforcement learning setup
+// States: [0, 1, 2, 3] (positions on a grid)
+// Actions: [left, right]
+// Rewards: +1 for reaching state 3
+
+const states = 4;
+const actions = 2;
+const qTable = tf.zeros([states, actions]);
+
+// Simulate training: update Q-values
+const learningRate = 0.1;
+const discountFactor = 0.9;
+
+const updateQValue = (state, action, reward, nextState) => {
+  const currentQ = qTable.gather([state]).gather([action]);
+  const maxNextQ = qTable.gather([nextState]).max();
+  const newQ = currentQ.add(
+    tf.scalar(learningRate).mul(
+      tf.scalar(reward).add(tf.scalar(discountFactor).mul(maxNextQ)).sub(currentQ)
+    )
+  );
+  qTable.scatterNDUpdate([[state, action]], [newQ]);
+};
+
+```
