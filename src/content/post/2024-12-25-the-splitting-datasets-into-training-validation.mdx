@@ -1,0 +1,147 @@
+---
+title: "Why Split a Dataset into Training, Validation, and Test Sets?"
+description: >
+  Learn the purpose of dividing datasets into training, validation, and test sets, and see practical examples of how to implement this in TensorFlow.js for better machine learning models.
+publishDate: 2024-12-16
+heroImage: '../../content/post/_images/2022-02-16-example-article-1/dataset_split.png.png'
+heroAlt: Splitting datasets into training, validation, and test sets for effective machine learning workflows.
+tags:
+  - tensorflow.js
+  - machine learning
+  - data preprocessing
+category: tutorials
+toc: true
+---
+
+import { Alert } from '../../components/Alert.astro';
+
+## The Purpose of Dataset Splits in Machine Learning
+
+Splitting a dataset into **training**, **validation**, and **test** sets is a fundamental step in machine learning. Each subset serves a unique purpose in the development, optimization, and evaluation of a model.
+
+### Why Split the Dataset?
+
+1. **Training Set**: This subset is used to train the model. It helps the model learn patterns and relationships in the data.
+
+2. **Validation Set**: Used during training to tune hyperparameters and prevent overfitting. It helps monitor the model's performance on unseen data during training.
+
+3. **Test Set**: Held back until the final evaluation phase to assess the model's performance. It provides an unbiased evaluation of how the model will perform on real-world data.
+
+Without these splits, you risk overfitting the model to the data or failing to get a realistic estimate of its generalization ability.
+
+
+
+---
+
+### Example: Dataset Splitting in TensorFlow.js
+
+Here’s how to split a dataset into training, validation, and test sets using TensorFlow.js:
+
+### 1. Import TensorFlow.js
+
+```js
+import * as tf from '@tensorflow/tfjs';
+```
+
+### 2. Define the Dataset
+Assume we have a simple dataset of numerical values:
+```js
+const data = [
+  { features: [1, 2], label: 0 },
+  { features: [3, 4], label: 1 },
+  { features: [5, 6], label: 0 },
+  { features: [7, 8], label: 1 },
+  { features: [9, 10], label: 0 },
+  { features: [11, 12], label: 1 },
+];
+
+```
+
+### 3. Shuffle and Split the Dataset
+We’ll shuffle the data to ensure randomness and split it into 70% training, 15% validation, and 15% test sets:
+
+```js
+// Shuffle the data
+const shuffledData = tf.util.shuffle(data);
+
+// Split the data
+const trainSize = Math.floor(0.7 * data.length);
+const valSize = Math.floor(0.15 * data.length);
+
+const trainingSet = shuffledData.slice(0, trainSize);
+const validationSet = shuffledData.slice(trainSize, trainSize + valSize);
+const testSet = shuffledData.slice(trainSize + valSize);
+
+
+```
+
+### 4. Prepare the Data for TensorFlow.js
+Convert the datasets into tensors:
+
+```js
+const toTensors = (dataset) => {
+  const features = dataset.map((item) => item.features);
+  const labels = dataset.map((item) => item.label);
+
+  return {
+    features: tf.tensor2d(features),
+    labels: tf.tensor1d(labels, 'int32'),
+  };
+};
+
+const trainTensors = toTensors(trainingSet);
+const valTensors = toTensors(validationSet);
+const testTensors = toTensors(testSet);
+
+```
+
+### Why Is Splitting Important?
+- **Training Set:** The model learns patterns in the data.
+- **Validation Set:**  Monitors the model's ability to generalize to unseen data during training.
+- **Test Set:**  Provides a final measure of how well the model performs on completely unseen data.
+
+
+
+### EXAMPLE
+```js
+const tf = require("@tensorflow/tfjs-node");
+const path = require("path");
+const fs = require("fs");
+
+const cspath = path.join(__dirname, 'drive/MyDrive/Colab Notebooks/data.csv');
+
+const dataset = tf.data.csv(`file://${cspath}`, {
+   columnConfigs: {
+      lastCandleRange: {},
+      secondLastCandleRange: {},
+      entrytolow: {},
+      outcomeBinary: { isLabel: true }
+   },
+   configuredColumnsOnly: true
+});
+
+
+(async ()=> {
+  
+  const dataArray = await dataset.toArray()
+  const shuffle  = tf.util.shuffle(dataArray)
+
+  const  X  = []
+  const y = []
+
+dataArray.forEach(item => {
+  X.push(Object.values(item.xs));
+  y.push(Object.values(item.ys) =='win' ? 1: 0);
+}) 
+   // shuffle the array
+
+ const trainX = Math.floor(0.7 * X.length)
+ const trainY = Math.floor(0.15 * y.length)
+
+ const trainData = dataArray.slice(0, trainX)
+ const testData = dataArray.slice(trainX, trainX + trainY)
+ const validationData = dataArray.slice(trainX + trainY)
+   //log the shuffled data
+   console.log(trainData.length, testData.length, validationData.length)
+})()
+```
